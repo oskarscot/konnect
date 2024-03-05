@@ -33,7 +33,7 @@ fun konnectServer(port: Int = 54666, host: String = "127.0.0.1", block: KonnectS
  * @property host The host address for the server.
  */
 class KonnectServerBuilder(private val port: Int, private val host: String) {
-    private var serializer: Serializer = ByteArraySerializer()
+    private var serializer: Serializer<*> = ByteArraySerializer()
     private var loggingEnabled: Boolean = false
     private val listeners = mutableListOf<NetworkEventListener>()
 
@@ -43,7 +43,7 @@ class KonnectServerBuilder(private val port: Int, private val host: String) {
      * @param serializer The serializer to be registered.
      * @return This KonnectServerBuilder instance for method chaining.
      */
-    fun registerSerializer(serializer: Serializer) = apply { this.serializer = serializer }
+    fun registerSerializer(serializer: Serializer<*>) = apply { this.serializer = serializer }
 
     /**
      * Enables logging for the server.
@@ -90,7 +90,7 @@ class KonnectServer internal constructor(
     host: String,
     port: Int,
     emitter: NetworkEventEmitter,
-    serializer: Serializer,
+    serializer: Serializer<*>,
     loggingEnabled: Boolean,
     unit: () -> Unit
 ) {

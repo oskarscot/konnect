@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream
 /**
  * Serializer implementation that serializes objects into byte arrays using Java serialization.
  */
-class ByteArraySerializer : Serializer {
+class ByteArraySerializer : Serializer<ByteArray> {
 
     /**
      * Serializes an object into a byte array.
