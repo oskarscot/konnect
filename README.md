@@ -31,6 +31,15 @@ class SocketConnectedListener : NetworkEventListener {
 }
 ```
 
+```
+Starting Konnect server
+Listening on localhost:54666
+Accepting connections...
+Accepted connection from /127.0.0.1:52111
+Connected to socket /127.0.0.1:52111
+Received: Hello from client: /127.0.0.1:52111
+```
+
 ### Client
 ```kotlin
 fun main() {
@@ -41,6 +50,11 @@ fun main() {
 }
 
 //TODO: Add more examples
+```
+
+```
+Connected to server: localhost:54666
+Received: Hello from server /127.0.0.1:54666
 ```
 
 

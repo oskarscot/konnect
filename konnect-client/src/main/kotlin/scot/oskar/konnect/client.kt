@@ -101,6 +101,7 @@ class KonnectClient internal constructor(
         runBlocking {
             selectorManager = SelectorManager(Dispatchers.IO)
             clientSocket = aSocket(selectorManager).tcp().connect(host, port)
+            if (loggingEnabled) println("Connected to server: $host:$port")
             val input = clientSocket.openReadChannel()
             val output = clientSocket.openWriteChannel(autoFlush = true)
             launch(Dispatchers.IO) {
